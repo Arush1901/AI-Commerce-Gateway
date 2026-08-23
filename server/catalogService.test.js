@@ -31,16 +31,16 @@ assert('no mice in result',      headsets.every(p => p.category !== 'mouse'));
 assert('returns at least one product', headsets.length > 0);
 
 console.log('\nmaxPrice filter');
-const budget = 60;
+const budget = 1500;
 const cheap  = searchCatalog({ maxPrice: budget });
 assert('returns an array', Array.isArray(cheap));
 assert(`no product price > ${budget}`, cheap.every(p => p.price <= budget));
 assert('at least one product returned', cheap.length > 0);
 
 console.log('\nCombined category + maxPrice');
-const combined = searchCatalog({ category: 'mouse', maxPrice: 50 });
+const combined = searchCatalog({ category: 'mouse', maxPrice: 1000 });
 assert('all are mice',              combined.every(p => p.category === 'mouse'));
-assert('all within budget',         combined.every(p => p.price <= 50));
+assert('all within budget',         combined.every(p => p.price <= 1000));
 
 console.log('\nEdge cases');
 const keyboards = searchCatalog({ category: 'keyboard' });

@@ -127,6 +127,8 @@ async function parseIntent(userText) {
 
     return parsed;
   }
+  // Safety net — should never be reached given the throws inside the loop
+  throw new Error('parseIntent: exhausted retries without resolving');
 }
 
 module.exports = { parseIntent };
