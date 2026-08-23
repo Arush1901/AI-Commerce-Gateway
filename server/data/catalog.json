@@ -1,0 +1,137 @@
+[
+  {
+    "id": "hs-001",
+    "name": "SoundWave Pro X",
+    "category": "headset",
+    "tier": "pro",
+    "price": 149.99,
+    "features": ["noise-cancellation", "surround-sound", "bluetooth-5.2", "40h-battery"],
+    "stock": 32
+  },
+  {
+    "id": "hs-002",
+    "name": "SoundWave Lite",
+    "category": "headset",
+    "tier": "lite",
+    "price": 49.99,
+    "features": ["stereo-sound", "wired", "foldable"],
+    "stock": 120
+  },
+  {
+    "id": "hs-003",
+    "name": "OfficeTone 300",
+    "category": "headset",
+    "tier": "office",
+    "price": 79.99,
+    "features": ["noise-cancelling-mic", "usb-c", "on-ear"],
+    "stock": 65
+  },
+  {
+    "id": "hs-004",
+    "name": "BassMax Pro",
+    "category": "headset",
+    "tier": "pro",
+    "price": 199.99,
+    "features": ["active-noise-cancellation", "hi-res-audio", "wireless", "60h-battery"],
+    "stock": 18
+  },
+  {
+    "id": "hs-005",
+    "name": "ClearCall Office",
+    "category": "headset",
+    "tier": "office",
+    "price": 89.99,
+    "features": ["omnidirectional-mic", "usb-a", "over-ear", "plug-and-play"],
+    "stock": 44
+  },
+  {
+    "id": "kb-001",
+    "name": "MechMaster Pro",
+    "category": "keyboard",
+    "tier": "pro",
+    "price": 169.99,
+    "features": ["cherry-mx-red", "per-key-rgb", "aluminium-frame", "usb-c", "n-key-rollover"],
+    "stock": 27
+  },
+  {
+    "id": "kb-002",
+    "name": "TypeSwift Lite",
+    "category": "keyboard",
+    "tier": "lite",
+    "price": 39.99,
+    "features": ["membrane", "compact-tenkeyless", "spill-resistant"],
+    "stock": 200
+  },
+  {
+    "id": "kb-003",
+    "name": "DeskPro Office 60",
+    "category": "keyboard",
+    "tier": "office",
+    "price": 69.99,
+    "features": ["scissor-switch", "wireless-2.4ghz", "usb-a", "quiet-keys"],
+    "stock": 85
+  },
+  {
+    "id": "kb-004",
+    "name": "TactiKeys Pro TKL",
+    "category": "keyboard",
+    "tier": "pro",
+    "price": 139.99,
+    "features": ["gateron-blue", "hot-swappable", "rgb-backlight", "detachable-cable"],
+    "stock": 40
+  },
+  {
+    "id": "kb-005",
+    "name": "SlimType Office BT",
+    "category": "keyboard",
+    "tier": "office",
+    "price": 59.99,
+    "features": ["bluetooth-5.0", "multi-device", "rechargeable", "low-profile"],
+    "stock": 110
+  },
+  {
+    "id": "ms-001",
+    "name": "TrackForce Pro",
+    "category": "mouse",
+    "tier": "pro",
+    "price": 119.99,
+    "features": ["25600-dpi", "wireless", "hero-sensor", "100h-battery", "rgb"],
+    "stock": 55
+  },
+  {
+    "id": "ms-002",
+    "name": "ClickEase Lite",
+    "category": "mouse",
+    "tier": "lite",
+    "price": 19.99,
+    "features": ["1200-dpi", "wired", "3-button", "plug-and-play"],
+    "stock": 300
+  },
+  {
+    "id": "ms-003",
+    "name": "PrecisionPoint Office",
+    "category": "mouse",
+    "tier": "office",
+    "price": 44.99,
+    "features": ["silent-clicks", "wireless-2.4ghz", "6-buttons", "ergonomic"],
+    "stock": 90
+  },
+  {
+    "id": "ms-004",
+    "name": "AimForce Pro Elite",
+    "category": "mouse",
+    "tier": "pro",
+    "price": 159.99,
+    "features": ["36000-dpi", "optical-sensor", "ultra-light", "paracord-cable", "per-zone-rgb"],
+    "stock": 22
+  },
+  {
+    "id": "ms-005",
+    "name": "ErgoScroll Office",
+    "category": "mouse",
+    "tier": "office",
+    "price": 54.99,
+    "features": ["vertical-design", "wireless", "adjustable-dpi", "thumb-rest"],
+    "stock": 48
+  }
+]

@@ -1,0 +1,31 @@
+# ── Dependencies ──────────────────────────────────────────
+node_modules/
+
+# ── Environment / secrets ─────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Build output ──────────────────────────────────────────
+dist/
+build/
+client/dist/
+
+# ── Logs ──────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── OS / editor junk ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Vite / tooling cache ──────────────────────────────────
+.vite/
+.eslintcache
+
+# ── Misc test files ───────────────────────────────────────
+test.html
