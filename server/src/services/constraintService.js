@@ -15,7 +15,20 @@ const ADJACENT_TIERS = {
   office: ['lite'],    // office → can downgrade to lite
   lite:   [],          // lite  → no further downgrade available
 };
-// Upward movement (lite → office, office → pro) is intentionally excluded.
+// Downgrade paths only — used by getValidSubstitutes() for the RESCUE path
+// (buyer over budget). Growth (buyer under budget) uses UPGRADE_TIERS below.
+
+// ─── Upgrade adjacency map (mirror of the above, for the revenue-GROWTH path) ──
+//
+// The merchant grows revenue by moving a buyer UP one tier when they have
+// mandate headroom. Same explicit-data, no-AI philosophy — just the inverse
+// ladder: lite → office → pro.
+//
+const UPGRADE_TIERS = {
+  lite:   ['office'],  // lite   → can upsell to office
+  office: ['pro'],     // office → can upsell to pro
+  pro:    [],          // pro    → already top tier, nothing to upsell to
+};
 
 // ─── isLocked ────────────────────────────────────────────────────────────────
 
@@ -60,4 +73,35 @@ function getValidSubstitutes(productId, catalog) {
   );
 }
 
-module.exports = { isLocked, getValidSubstitutes, TIER_ORDER, ADJACENT_TIERS };
+// ─── getValidUpgrades ─────────────────────────────────────────────────────────
+
+/**
+ * Return all valid UPGRADE products (one tier up) for a given product — the
+ * revenue-growth mirror of getValidSubstitutes.
+ *
+ * Upgrade rules (data, not AI):
+ *   1. Same category as the source product.
+ *   2. Exactly one tier UP (lite→office, office→pro) per UPGRADE_TIERS.
+ *   3. Not the source product itself.
+ *   4. In stock.
+ *
+ * @param {string}           productId - ID of the product to upgrade
+ * @param {CatalogProduct[]} catalog   - Full product catalog
+ * @returns {CatalogProduct[]}         - Valid upgrades (may be empty)
+ */
+function getValidUpgrades(productId, catalog) {
+  const source = catalog.find(p => p.id === productId);
+  if (!source) return [];
+
+  const allowedTiers = UPGRADE_TIERS[source.tier] ?? [];
+
+  return catalog.filter(p =>
+    p.id       !== productId        &&   // not the same product
+    p.category === source.category  &&   // same category
+    allowedTiers.includes(p.tier)   &&   // one tier up
+    p.stock    >  0                 &&   // in stock
+    p.price    >  source.price           // must actually cost more (real upsell)
+  );
+}
+
+module.exports = { isLocked, getValidSubstitutes, getValidUpgrades, TIER_ORDER, ADJACENT_TIERS, UPGRADE_TIERS };

@@ -1,6 +1,6 @@
 'use strict';
 
-const { searchCatalog } = require('./catalogService');
+const { searchCatalog } = require('../src/services/catalogService');
 
 // ─── helpers ───────────────────────────────────────────────────────────────
 
@@ -9,17 +9,17 @@ let failed = 0;
 
 function assert(description, condition) {
   if (condition) {
-    console.log(`  ✅  ${description}`);
+    console.log(`   ${description}`);
     passed++;
   } else {
-    console.error(`  ❌  ${description}`);
+    console.error(`   ${description}`);
     failed++;
   }
 }
 
 // ─── tests ─────────────────────────────────────────────────────────────────
 
-console.log('\n📦 searchCatalog — unit tests\n');
+console.log('\nsearchCatalog — unit tests\n');
 
 // 1. category filter
 console.log('Category filter');
@@ -70,5 +70,5 @@ if (failed > 0) {
   console.error('\nSome tests failed.');
   process.exit(1);
 } else {
-  console.log('\nAll tests passed ✅');
+  console.log('\nAll tests passed ');
 }

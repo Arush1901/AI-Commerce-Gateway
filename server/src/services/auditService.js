@@ -7,6 +7,7 @@
  *   { step, input, output, timestamp }
  *
  * Storage: plain Map — no database, no SQLite, no Redis.
+ * I4 fix: FIFO eviction at MAX_TRANSACTIONS cap to prevent unbounded growth.
  * Reset between test runs by calling _reset() (test-only helper).
  */
 
@@ -15,15 +16,27 @@
 /** @type {Map<string, AuditEntry[]>} */
 const store = new Map();
 
+/**
+ * I4: Maximum number of concurrent audit trails in memory.
+ * When exceeded, the oldest transaction is evicted (FIFO via Map insertion order).
+ */
+const MAX_TRANSACTIONS = 1000;
+
 // ─── public API ───────────────────────────────────────────────────────────────
 
 /**
  * Initialise an empty audit trail for a transaction.
  * Must be called before appendAudit().
+ * Evicts the oldest trail if the store is at capacity.
  *
  * @param {string} transactionId
  */
 function createAudit(transactionId) {
+  // Evict oldest entry when at capacity (Map preserves insertion order)
+  if (store.size >= MAX_TRANSACTIONS) {
+    const oldestKey = store.keys().next().value;
+    store.delete(oldestKey);
+  }
   store.set(transactionId, []);
 }
 

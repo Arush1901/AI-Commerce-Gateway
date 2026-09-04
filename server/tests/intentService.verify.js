@@ -1,6 +1,6 @@
 'use strict';
 
-const { parseIntent } = require('./intentService');
+const { parseIntent } = require('../src/services/intentService');
 
 const VARIANTS = [
   'gaming setup under ₹10000, headset matters most',
@@ -11,7 +11,7 @@ const VARIANTS = [
 ];
 
 async function run() {
-  console.log('\n🧪 parseIntent — verification (5 variants)\n');
+  console.log('\nparseIntent — verification (5 variants)\n');
   let allPassed = true;
 
   for (let i = 0; i < VARIANTS.length; i++) {
@@ -27,25 +27,25 @@ async function run() {
       if (typeof intent.preferences !== 'object') errors.push('preferences not an object');
 
       if (errors.length) {
-        console.log(`❌ FAIL: ${errors.join(', ')}`);
+        console.log(`FAIL: ${errors.join(', ')}`);
         allPassed = false;
       } else {
-        console.log(`✅ OK`);
+        console.log(`OK`);
         console.log(`       goal: "${intent.goal}"`);
         console.log(`       budget: ₹${intent.budget}`);
         console.log(`       preferences: ${JSON.stringify(intent.preferences)}\n`);
       }
     } catch (err) {
-      console.log(`❌ ERROR: ${err.message}\n`);
+      console.log(`ERROR: ${err.message}\n`);
       allPassed = false;
     }
   }
 
   console.log('─'.repeat(50));
   if (allPassed) {
-    console.log('All 5 variants returned valid Intent objects ✅');
+    console.log('All 5 variants returned valid Intent objects ');
   } else {
-    console.error('One or more variants failed ❌');
+    console.error('One or more variants failed ');
     process.exit(1);
   }
 }

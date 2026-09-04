@@ -1,13 +1,13 @@
 'use strict';
 
-const { validateUserPolicy, validateMerchantPolicy } = require('./policyService');
+const { validateUserPolicy, validateMerchantPolicy } = require('../src/services/policyService');
 
 // ─── assert harness ───────────────────────────────────────────────────────────
 let passed = 0;
 let failed = 0;
 function assert(desc, condition, detail = '') {
-  if (condition) { console.log(`  ✅  ${desc}`); passed++; }
-  else { console.error(`  ❌  ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
+  if (condition) { console.log(`   ${desc}`); passed++; }
+  else { console.error(`   ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
 }
 
 // ─── shared fixtures ──────────────────────────────────────────────────────────
@@ -30,7 +30,7 @@ const offer = {
 // ═══════════════════════════════════════════════════════════════════════════════
 // validateUserPolicy
 // ═══════════════════════════════════════════════════════════════════════════════
-console.log('\n📋 validateUserPolicy — tests\n');
+console.log('\nvalidateUserPolicy — tests\n');
 
 // ── Case 1: within limits → approved ─────────────────────────────────────────
 console.log('Case 1: cart within user limits → approved\n');
@@ -78,7 +78,7 @@ assert('no allowed_categories → approved', rEdge.status === 'approved');
 // ═══════════════════════════════════════════════════════════════════════════════
 // validateMerchantPolicy
 // ═══════════════════════════════════════════════════════════════════════════════
-console.log('\n🏪 validateMerchantPolicy — tests\n');
+console.log('\nvalidateMerchantPolicy — tests\n');
 
 // ── Case 1: discount within limit → approved ──────────────────────────────────
 console.log('Case 1: discount within merchant limit → approved\n');
@@ -141,4 +141,4 @@ assert('merchant reason has no spending info',
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`Tests: ${passed + failed}  |  Passed: ${passed}  |  Failed: ${failed}`);
 if (failed > 0) { console.error('\nSome tests failed.'); process.exit(1); }
-else { console.log('\nAll tests passed ✅'); }
+else { console.log('\nAll tests passed '); }

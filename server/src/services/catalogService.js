@@ -1,6 +1,6 @@
 'use strict';
 
-const catalog = require('./data/catalog.json');
+const catalog = require('../data/catalog.json');
 
 /**
  * Search the catalog by category and/or maxPrice.

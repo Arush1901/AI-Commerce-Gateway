@@ -1,13 +1,29 @@
 {
-  "name": "razorpay",
+  "name": "ai-commerce-gateway",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "A goal-first agentic commerce gateway: natural-language shopping requests turned into compliant, gated, and fully auditable purchases. Built for the Razorpay AI Buildathon (Track 01: AI Growth & Agentic Commerce).",
+  "private": true,
+  "author": "Arush Maurya",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "scripts": {
+    "test": "npm --prefix server test",
+    "start": "npm --prefix server start",
+    "dev:client": "npm --prefix client run dev",
+    "install:all": "npm --prefix server install && npm --prefix client install"
+  },
+  "keywords": [
+    "agentic-commerce",
+    "ai-agent",
+    "razorpay",
+    "groq",
+    "llm",
+    "negotiation",
+    "spend-mandate",
+    "audit-trail",
+    "react",
+    "express"
+  ]
 }

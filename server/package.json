@@ -1,27 +1,45 @@
 {
-  "name": "server",
+  "name": "ai-commerce-gateway-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "node catalogService.test.js && node cartService.test.js && node constraintService.test.js && node negotiation.test.js && node multiNegotiation.test.js && node policyService.test.js && node orchestrator.test.js && node audit.test.js",
-    "test:catalog": "node catalogService.test.js",
-    "test:cart": "node cartService.test.js",
-    "test:constraint": "node constraintService.test.js",
-    "test:negotiation": "node negotiation.test.js",
-    "test:multi": "node multiNegotiation.test.js",
-    "test:policy": "node policyService.test.js",
-    "test:orchestrator": "node orchestrator.test.js",
-    "test:audit": "node audit.test.js",
-    "verify:intent": "node intentService.verify.js"
+  "description": "Backend for AI-Commerce-Gateway: a goal-first agentic commerce pipeline with a signed spend mandate, bounded buyer-merchant negotiation, human-in-the-loop confirmation, and a full audit trail.",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=18"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node tests/goalService.test.js && node tests/catalogService.test.js && node tests/cartService.test.js && node tests/constraintService.test.js && node tests/multiNegotiation.test.js && node tests/policyService.test.js && node tests/orchestrator.test.js && node tests/optionsService.test.js && node tests/audit.test.js && node tests/paymentService.test.js && node tests/intentService.test.js && node tests/agentNegotiation.test.js && node tests/growthNegotiation.test.js",
+    "test:goal": "node tests/goalService.test.js",
+    "test:catalog": "node tests/catalogService.test.js",
+    "test:cart": "node tests/cartService.test.js",
+    "test:constraint": "node tests/constraintService.test.js",
+    "test:multi": "node tests/multiNegotiation.test.js",
+    "test:policy": "node tests/policyService.test.js",
+    "test:orchestrator": "node tests/orchestrator.test.js",
+    "test:options": "node tests/optionsService.test.js",
+    "test:audit": "node tests/audit.test.js",
+    "test:payment": "node tests/paymentService.test.js",
+    "test:agent": "node tests/agentNegotiation.test.js",
+    "test:growth": "node tests/growthNegotiation.test.js",
+    "verify:intent": "node tests/intentService.verify.js"
+  },
+  "keywords": [
+    "agentic-commerce",
+    "ai-agent",
+    "razorpay",
+    "groq",
+    "llm",
+    "express",
+    "negotiation",
+    "spend-mandate",
+    "audit-trail"
+  ],
+  "author": "Arush Maurya",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "razorpay": "^2.9.8"
   }
 }

@@ -1,13 +1,13 @@
 'use strict';
 
-const { buildCart } = require('./cartService');
+const { buildCart } = require('../src/services/cartService');
 
 // ─── assert harness ───────────────────────────────────────────────────────────
 let passed = 0;
 let failed = 0;
 function assert(desc, condition, detail = '') {
-  if (condition) { console.log(`  ✅  ${desc}`); passed++; }
-  else { console.error(`  ❌  ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
+  if (condition) { console.log(`   ${desc}`); passed++; }
+  else { console.error(`   ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
 }
 
 // ── shared catalog fixture ────────────────────────────────────────────────────
@@ -28,7 +28,7 @@ const intent = {
 };
 
 // ─── Test 1: exact desired output ─────────────────────────────────────────────
-console.log('\n🛒 buildCart — unit tests\n');
+console.log('\nbuildCart — unit tests\n');
 console.log('Test 1: core output — headset ₹6000 + keyboard ₹3500 + mouse ₹2000 = ₹11500');
 
 const cart = buildCart(intent, catalog);
@@ -78,4 +78,4 @@ assert('over_budget = false', emptyCart.over_budget === false);
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`Tests: ${passed + failed}  |  Passed: ${passed}  |  Failed: ${failed}`);
 if (failed > 0) { console.error('\nSome tests failed.'); process.exit(1); }
-else { console.log('\nAll tests passed ✅'); }
+else { console.log('\nAll tests passed '); }

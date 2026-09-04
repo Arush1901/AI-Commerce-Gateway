@@ -1,13 +1,13 @@
 'use strict';
 
-const { isLocked, getValidSubstitutes, ADJACENT_TIERS } = require('./constraintService');
+const { isLocked, getValidSubstitutes, ADJACENT_TIERS } = require('../src/services/constraintService');
 
 // ─── assert harness ───────────────────────────────────────────────────────────
 let passed = 0;
 let failed = 0;
 function assert(desc, condition, detail = '') {
-  if (condition) { console.log(`  ✅  ${desc}`); passed++; }
-  else { console.error(`  ❌  ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
+  if (condition) { console.log(`   ${desc}`); passed++; }
+  else { console.error(`   ${desc}${detail ? ' — ' + detail : ''}`); failed++; }
 }
 
 // ── shared fixtures ───────────────────────────────────────────────────────────
@@ -37,7 +37,7 @@ const catalog = [
 ];
 
 // ─── Test 1: isLocked ─────────────────────────────────────────────────────────
-console.log('\n🔒 isLocked — tests\n');
+console.log('\nisLocked — tests\n');
 
 assert('headset (locked) → true',          isLocked('headset',  intent) === true);
 assert('keyboard (medium) → false',        isLocked('keyboard', intent) === false);
@@ -54,7 +54,7 @@ assert('office adj = [lite] only',         JSON.stringify(ADJACENT_TIERS['office
 assert('lite  adj = [] (no downgrade)',     JSON.stringify(ADJACENT_TIERS['lite'])   === JSON.stringify([]));
 
 // ─── Test 3: getValidSubstitutes — pro mouse ──────────────────────────────────
-console.log('\n🔄 getValidSubstitutes — pro mouse\n');
+console.log('\ngetValidSubstitutes — pro mouse\n');
 
 const mouseSubs = getValidSubstitutes('ms-pro', catalog);
 
@@ -111,4 +111,4 @@ assert('unknown id → empty array',               noSubs.length === 0);
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`Tests: ${passed + failed}  |  Passed: ${passed}  |  Failed: ${failed}`);
 if (failed > 0) { console.error('\nSome tests failed.'); process.exit(1); }
-else { console.log('\nAll tests passed ✅'); }
+else { console.log('\nAll tests passed '); }
