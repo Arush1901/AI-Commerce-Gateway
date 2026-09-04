@@ -7,11 +7,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #f0f4f8;
+  --bg:          #d4dfe9;
   --surface:     #ffffff;
-  --surface-2:   #f5f7fa;
-  --border:      #dce3ec;
-  --border-hi:   #b8c8db;
+  --surface-2:   #f0f4f8;
+  --border:      #a8bccf;
+  --border-hi:   #7a9ab5;
   --text:        #0f1c2e;
   --muted:       #6b7c93;
 
@@ -28,8 +28,8 @@
 
   --radius:      10px;
   --radius-sm:   7px;
-  --shadow:      0 1px 4px rgba(15,28,46,.08), 0 4px 16px rgba(15,28,46,.06);
-  --shadow-lg:   0 4px 24px rgba(15,28,46,.12);
+  --shadow:      0 2px 6px rgba(15,28,46,.14), 0 6px 20px rgba(15,28,46,.10);
+  --shadow-lg:   0 6px 30px rgba(15,28,46,.18);
   --transition:  .18s ease;
 }
 
@@ -56,9 +56,9 @@ body {
   margin-bottom: 2.5rem;
   padding: 2.5rem 1rem 2rem;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 .header h1 {
   font-size: clamp(1.65rem, 3.5vw, 2.5rem);
@@ -79,7 +79,7 @@ body {
 /* ── Card ───────────────────────────────────────────────────────── */
 .card {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
   padding: 1.75rem;
   box-shadow: var(--shadow);
@@ -242,10 +242,11 @@ body {
 .step-ts { font-size: .68rem; color: var(--muted); margin-left: auto; }
 
 .step-content {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   padding: .9rem 1rem;
+  box-shadow: 0 1px 4px rgba(15,28,46,.06);
 }
 
 /* Status pills */
@@ -334,17 +335,18 @@ body {
 }
 .scenario-btn {
   flex: 1; min-width: 160px;
-  background: var(--surface); border: 1px solid var(--border);
+  background: var(--surface); border: 1.5px solid var(--border-hi);
   border-radius: var(--radius-sm); color: var(--text);
   font-family: inherit; font-size: .82rem; font-weight: 600;
   padding: .65rem 1rem; cursor: pointer;
   transition: all var(--transition); text-align: center;
+  box-shadow: 0 1px 4px rgba(15,28,46,.08);
 }
 .scenario-btn:hover {
   border-color: var(--accent); background: var(--accent-light);
   color: var(--accent);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(26,111,214,.1);
+  box-shadow: 0 3px 10px rgba(26,111,214,.15);
 }
 
 /* ── Segmented control ──────────────────────────────────────────── */
@@ -382,7 +384,7 @@ body {
 /* ── Revenue hero ───────────────────────────────────────────────── */
 .revenue-hero {
   border-radius: var(--radius); padding: 1.4rem 1.5rem;
-  border: 1px solid var(--border); background: var(--surface);
+  border: 1.5px solid var(--border); background: var(--surface);
   box-shadow: var(--shadow);
   animation: slideDown .3s ease; display: flex; flex-direction: column;
 }
@@ -426,7 +428,7 @@ body {
 
 /* ── Mandate card ───────────────────────────────────────────────── */
 .mandate-card {
-  border: 1px solid var(--border); border-radius: var(--radius);
+  border: 1.5px solid var(--border); border-radius: var(--radius);
   background: var(--surface); padding: 1.4rem 1.5rem;
   box-shadow: var(--shadow);
   animation: slideDown .3s ease; display: flex; flex-direction: column;
